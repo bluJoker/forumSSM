@@ -14,6 +14,7 @@ public class LoginLogDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //保存登陆日志SQL
     public void insertLoginLog(LoginLog loginLog){
 
         String sql = "insert into t_login_log (user_id, ip, login_datetime) values(?, ?, ?)";
