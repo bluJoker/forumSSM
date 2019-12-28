@@ -24,8 +24,8 @@ public class Service {
         System.out.println(user);
 
 
-//        User user1 = userService.findUserByUserName("admin");
-        User user1 = new User();
+        User user1 = userService.findUserByUserName("admin");
+//        User user1 = new User();
         user1.setUserId(1);
         user1.setUserName("admin");
         user1.setLastIp("192.168.12.7");

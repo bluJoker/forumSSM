@@ -6,6 +6,7 @@ import com.smarter.domain.LoginLog;
 import com.smarter.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -31,9 +32,13 @@ public class UserService {
         return userDao.findUserbyUsername(username);
     }
 
+    @Transactional
     public void loginSuccess(User user){
         user.setCredits(5 + user.getCredits());
         userDao.updateLoginInfo(user);
+        if (true){
+            throw new RuntimeException("loginLog update failed!");
+        }
         LoginLog loginLog = new LoginLog();
         loginLog.setUserId(user.getUserId());
         loginLog.setIp(user.getLastIp());
