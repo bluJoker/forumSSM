@@ -36,6 +36,8 @@ public class UserService {
     public void loginSuccess(User user){
         user.setCredits(5 + user.getCredits());
         userDao.updateLoginInfo(user);
+
+        // 手动抛出运行期异常，用于测试事务
         if (true){
             throw new RuntimeException("loginLog update failed!");
         }
