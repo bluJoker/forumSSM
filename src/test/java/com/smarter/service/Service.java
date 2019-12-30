@@ -24,12 +24,10 @@ public class Service {
         System.out.println(user);
 
 
-        User user1 = userService.findUserByUserName("admin");
-//        User user1 = new User();
-        user1.setUserId(1);
-        user1.setUserName("admin");
-        user1.setLastIp("192.168.12.7");
-        user1.setLastvisit(new Date());
-        userService.loginSuccess(user1);
+        user.setUserId(1);
+        user.setUserName("admin");
+        user.setLastIp("192.168.12.7");
+        user.setLastvisit(new Date());
+        userService.loginSuccess(user);
     }
 }

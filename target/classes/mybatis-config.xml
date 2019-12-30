@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--定义全限定类名的别名，在映射文件(xxMapper.xml)中可以通过别名代替具体的类名，简化配置-->
+    <typeAliases>
+        <!--不区分大小写-->
+        <typeAlias alias="User" type="com.smarter.domain.User"></typeAlias>
+        <typeAlias alias="LoginLog" type="com.smarter.domain.LoginLog"></typeAlias>
+    </typeAliases>
+
+
+</configuration>
