@@ -11,7 +11,7 @@ public interface UserMybatisDao {
     // public int getMatchCount(String username, String password);
 
     // 方法2：基于注解，用@Param来指定哪一个
-     public int getMatchCount(@Param("username") String username,
+    public int getMatchCount(@Param("username") String username,
                               @Param("password") String password);
 
 

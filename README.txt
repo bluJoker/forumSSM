@@ -13,3 +13,24 @@
 (2) 使用更高版本的mybatis（推荐方案），我使用的是<version.mybatis>3.4.1</version.mybatis>
 大家只要记住一点如果在搭建spring框架时总是报各种莫名其妙的错误，那一定是引用的jar包版本问题！！！
 当让如果用的是springboot搭建的，则不会出现莫须有的问题，因为springboot引用的jar包的依赖都是兼容好的，不需要我们分开引用。
+
+2、UserMapper.xml中getMatchCount的SQL语句含多个参数，此时不能使用parameterType属性指定(只适用于单个参数)
+解决方法：
+https://www.jianshu.com/p/d977eaadd1ed
+
+3、LoginLogMapper.xml中insertLoginLog的SQL语句含三个参数，但在其对应的LoginLogMybatisDao.insertLoginLog(LoginLog loginLog)方法参数为LoginLog类。
+此时，在LoginLogMapper.xml中可以通过#{属性名}取值，此属性名必须为LoginLog中的属性名。
+https://www.cnblogs.com/keyi/p/8509155.html
+
+<select id="getMatchCount" resultType="java.lang.Integer">
+        <!--方法1：-->
+        <!--SELECT count(*) FROM t_user WHERE user_name = #{0} and password = #{1}-->
+
+        <!--方法2：-->
+        SELECT count(*) FROM t_user WHERE user_name = #{username} and password = #{password}
+</select>
+
+// 方法2：基于注解，用@Param来指定哪一个
+public int getMatchCount(@Param("username") String username,
+                         @Param("password") String password);
+
