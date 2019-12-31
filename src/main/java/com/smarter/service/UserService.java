@@ -38,9 +38,9 @@ public class UserService {
         userMybatisDao.updateLoginInfo(user);
 
         // 手动抛出运行期异常，用于测试事务
-        if (true){
-            throw new RuntimeException("loginLog update failed!");
-        }
+//        if (true){
+//            throw new RuntimeException("loginLog update failed!");
+//        }
 
         LoginLog loginLog = new LoginLog();
         loginLog.setUserId(user.getUserId());

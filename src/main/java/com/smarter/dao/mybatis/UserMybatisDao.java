@@ -12,7 +12,7 @@ public interface UserMybatisDao {
 
     // 方法2：基于注解，用@Param来指定哪一个
     public int getMatchCount(@Param("username") String username,
-                              @Param("password") String password);
+                             @Param("password") String password);
 
 
     // 函数作用：根据用户名获取User对象

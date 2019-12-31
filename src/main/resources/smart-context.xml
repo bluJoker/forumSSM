@@ -29,7 +29,7 @@
     <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/sampledb?serverTimezone=GMT%2B8"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/sampledb?serverTimezone=GMT%2B8&amp;useSSL=false"></property>
         <property name="username" value="root"></property>
         <property name="password" value="123456"></property>
     </bean>
