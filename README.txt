@@ -109,6 +109,3 @@ at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
 Powered by Jetty://
 
 原因可能为jdk版本(11)和jetty版本(6.1.25)不兼容，将jdk版本从11换为1.8即可运行成功。
-
-2、login.jsp页面有两个用处，既作为登录页面，又作为登陆失败后的相应页面。所以在第9行，使用JSTL标签对登录错误返回的信息进行处理。
-在JSTL标签中引用了error变量，这个变量正是LoginController中返回的ModelAndView("login", "error", "用户名和密码错误")对象所声明的error参数。

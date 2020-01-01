@@ -6,10 +6,13 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     // Web容器上下文参数contextConfigLocation
-    // 从类路径下加载Spring配置文件
+    // 从类路径下加载Spring配置文件，这样位于Web层的Spring容器(WebApplicationContext)与位于业务层的Spring容器(ApplicationContext)
+    // 建立了关联，以使Web层的Bean可以调用业务层的Bean
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:smart-context.xml, classpath:mybatis-config.xml</param-value>
+        <!--此处不需要持久层的配置文件(classpath:mybatis-config.xml)，因为此项目Web层的Bean只调用了业务层的Bean-->
+        <!--<param-value>classpath:smart-context.xml, classpath:mybatis-config.xml</param-value>-->
+        <param-value>classpath:smart-context.xml</param-value>
     </context-param>
 
     // 1、用于启动WebApplicationContext的Web容器监听器：org.springframework.web.context.ContextLoaderListener

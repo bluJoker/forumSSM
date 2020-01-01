@@ -25,7 +25,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/loginCheck.html")
-//    SpringMVC自动将login.jsp表单中的数据按参数名和LoginCommand属性名匹配的方式进行绑定，将参数值填充到LoginCommand的相应属性中
+    // SpringMVC自动将login.jsp表单中的数据按参数名和LoginCommand属性名匹配的方式进行绑定，将参数值填充到LoginCommand的相应属性中
     public ModelAndView loginCheck(HttpServletRequest request,
                                    LoginCommand loginCommand){
         boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(),
@@ -46,5 +46,4 @@ public class LoginController {
             return new ModelAndView("main");
         }
     }
-
 }
