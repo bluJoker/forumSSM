@@ -4,9 +4,9 @@
 问题原因：mybatis的版本过低
 
 <dependency>
-<groupId>org.mybatis</groupId>
-<artifactId>mybatis</artifactId>
-<version>3.3.0</version>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>3.3.0</version>
 </dependency>
 
 (1) 在DAO的mapper类名上需要加上@Mapper注解解决方案：
@@ -16,24 +16,24 @@
 
 2、UserMapper.xml中getMatchCount的SQL语句含多个参数，此时不能使用parameterType属性指定(只适用于单个参数)
 解决方法：
-<select id="getMatchCount" resultType="java.lang.Integer">
+    <select id="getMatchCount" resultType="java.lang.Integer">
         <!--方法1：-->
         <!--SELECT count(*) FROM t_user WHERE user_name = #{0} and password = #{1}-->
 
         <!--方法2：-->
         SELECT count(*) FROM t_user WHERE user_name = #{username} and password = #{password}
-</select>
+    </select>
 
 // 方法2：基于注解，用@Param来指定哪一个
 public int getMatchCount(@Param("username") String username,
                          @Param("password") String password);
 ___https://www.jianshu.com/p/d977eaadd1ed
 
-3、LoginLogMapper.xml中insertLoginLog的SQL语句含三个参数，但在其对应的LoginLogMybatisDao.insertLoginLog(LoginLog loginLog)方法参数为LoginLog类。
-此时，在LoginLogMapper.xml中可以通过#{属性名}取值，此属性名必须为LoginLog中的属性名。
+3、LoginLogMapper.xml中insertLoginLog的SQL语句含三个参数，但在其对应的LoginLogMybatisDao.insertLoginLog(LoginLog loginLog)方法
+参数为LoginLog类。此时，在LoginLogMapper.xml中可以通过#{属性名}取值，此属性名必须为LoginLog中的属性名。
 ___https://www.cnblogs.com/keyi/p/8509155.html
 
-
+========================================================================================================================
 2019-12-31  整合SpringMVC时遇到的问题：
 1、配置Jetty插件后，打开Jetty配置的对应url：localhost:8000/bbs/index.html出错：
 
@@ -105,7 +105,8 @@ at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:212)
 at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
 at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:410)
 at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
-------------------------------------------------------------------------------------------------------------------------------------------------Powered by Jetty://
+------------------------------------------------------------------------------------------------------------------------
+Powered by Jetty://
 
 原因可能为jdk版本(11)和jetty版本(6.1.25)不兼容，将jdk版本从11换为1.8即可运行成功。
 
