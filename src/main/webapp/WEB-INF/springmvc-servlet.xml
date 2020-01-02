@@ -11,7 +11,10 @@
 
     <!-- 配置视图解析器，将ModelAndView及字符串解析为具体的页面 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>-->
+        <!--如果JSP文件使用了JSTL的国际化功能，确切地说，当JSP页面使用JSTL的<fmt:message/>标签时，用户需要使用JstlView替换默认的-->
+        <!--视图实现类(InternalResourceViewResolver)-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+
         <!--前缀-->
         <property name="prefix" value="/WEB-INF/jsp/"></property>
 

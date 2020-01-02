@@ -26,6 +26,7 @@ public class LoginController {
 
     @RequestMapping(value = "/loginCheck.html")
     // SpringMVC自动将login.jsp表单中的数据按参数名和LoginCommand属性名匹配的方式进行绑定，将参数值填充到LoginCommand的相应属性中
+    // 在使用Servlet API的类作为入参时，SpringMVC会自动将Web层对应的Servlet对象传递给处理方法的入参
     public ModelAndView loginCheck(HttpServletRequest request,
                                    LoginCommand loginCommand){
         boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(),
@@ -42,6 +43,11 @@ public class LoginController {
             user.setLastIp(request.getLocalAddr());
             user.setLastvisit(new Date());
             userService.loginSuccess(user);
+
+            // Spring4.x_p587
+            // 在准备对视图进行渲染前，SpringMVC还会进一步将模型中的数据转储到视图的上下文中并暴露给视图对象。对于JSP视图来说，SpringMVC
+            // 会将模型数据转储到ServletRequest的属性列表中(通过ServletRequest#setAttribute(String name, Object o)方法保存)。
+            // 这样WEB-INF/jsp/main.jsp视图就可以使用${user.username}等方式顺利地访问到模型中的数据了。
             request.getSession().setAttribute("user", user);
             return new ModelAndView("main");
         }
