@@ -77,6 +77,39 @@
             <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!--SLF4J(Simple logging Facade for Java)-->
+        <!--意思为简单日志门面，它是把不同的日志系统的实现进行了具体的抽象化，只提供了统一的日志使用接口，使用-->
+        <!--时只需要按照其提供的接口方法进行调用即可，由于它只是一个接口，并不是一个具体的可以直接单独使用的日-->
+        <!--志框架，所以最终日志的格式、记录级别、输出方式等都要通过接口绑定的具体的日志系统来实现，这些具体的-->
+        <!--日志系统就有log4j,logback,java.util.logging等，它们才实现了具体的日志系统的功能。-->
+
+        <!--其实slf4j原理很简单，他只提供一个核心slf4j api(就是slf4j-api.jar包)，这个包只有日志的接口，-->
+        <!--并没有实现，所以如果要使用就得再给它提供一个实现了些接口的日志包，比 如：log4j,common logging,-->
+        <!--jdk log日志实现包等，但是这些日志实现又不能通过接口直接调用，实现上他们根本就和slf4j-api不一致，-->
+        <!--因此slf4j又增加了一层来转换各日志实现包的使用，当然slf4j-simple除外。-->
+        <!--其结构如下：-->
+        <!--         slf4j-api(接口层)
+                          |
+             各日志实现包的连接层(slf4j-jdk14, slf4j-log4j)
+                          |
+                      各日志实现包
+        -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -105,7 +138,5 @@
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <mysql.version>8.0.12</mysql.version>
         <servlet.version>3.0-alpha-1</servlet.version>
-        <!--<maven.compiler.source>1.8</maven.compiler.source>-->
-        <!--<maven.compiler.target>1.8</maven.compiler.target>-->
     </properties>
 </project>

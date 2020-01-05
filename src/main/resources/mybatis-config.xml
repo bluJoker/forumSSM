@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <settings>
+        <!--logImpl属性配置指定使用LOG4J输出日志-->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
     <!--定义全限定类名的别名，在映射文件(xxMapper.xml)中可以通过别名代替具体的类名，简化配置-->
     <typeAliases>
         <!--不区分大小写-->
