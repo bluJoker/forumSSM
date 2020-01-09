@@ -397,6 +397,7 @@ public ModelAndView loginCheck(HttpServletRequest request,
 所以在第9行，使用JSTL标签对登录错误返回的信息进行处理。在JSTL标签中引用了error变量，这个变量正是LoginController中返回的ModelAndView("login", "error", "用户名和密码错误")对象所声明的error参数。</font>
 
 登录失败后的响应页面：
+
 ![登陆失败](https://img-blog.csdnimg.cn/20200109112856486.png)
 - 如果用户名/密码匹配
 
@@ -406,6 +407,7 @@ II、接着调用业务类（UserService）的方法进行登录成功的业务�
 
 III、返回逻辑视图名 return new ModelAndView("main")；视图解析器将其解析为视图对象：/WEB-INF/jsp/main.jsp
 登陆成功后的响应页面：
+
 ![登录成功](https://img-blog.csdnimg.cn/2020010911295568.png)
 
 参考
