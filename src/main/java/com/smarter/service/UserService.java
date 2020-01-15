@@ -36,9 +36,9 @@ public class UserService {
     public void loginSuccess(User user){
         user.setCredits(5 + user.getCredits());
         userDao.updateLoginInfo(user);
-        if (true){
-            throw new RuntimeException("loginLog update failed!");
-        }
+//        if (true){
+//            throw new RuntimeException("loginLog update failed!");
+//        }
         LoginLog loginLog = new LoginLog();
         loginLog.setUserId(user.getUserId());
         loginLog.setIp(user.getLastIp());
