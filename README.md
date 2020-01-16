@@ -25,4 +25,7 @@ This is a simple forum system built by SSM[简易论坛登录]
 
 ![](./images/loginSuccess.png)
 
+- 注册成功页面：
+
+![](./images/register.png)
 

@@ -48,4 +48,8 @@ public class UserService {
         loginLog.setLoginDate(user.getLastvisit());
         loginLogMybatisDao.insertLoginLog(loginLog);
     }
+
+    public void register(User user){
+        userMybatisDao.insertUser(user);
+    }
 }

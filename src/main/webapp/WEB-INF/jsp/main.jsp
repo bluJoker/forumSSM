@@ -8,6 +8,6 @@
 <title>forum wangw</title>
 </head>
 <body>
-    ${user.userName},welcome to forum wangw，your credits now ${user.credits};
+    ${user.userName},welcome to forum，your credits now ${user.credits};
 </body>
 </html>

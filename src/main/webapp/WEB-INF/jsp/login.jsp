@@ -16,8 +16,9 @@
 			密 码：
 			<input type="password" name="password">
 			<br>
-			<input type="submit" value="登录" />
+			<input type="submit" value="登录" name="action"/>
 			<input type="reset" value="重置" />
+			<input type="submit" value="注册" name="action"/>
 		</form>
 	</body>
 </html>

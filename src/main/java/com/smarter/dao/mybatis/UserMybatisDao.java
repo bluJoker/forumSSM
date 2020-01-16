@@ -20,4 +20,6 @@ public interface UserMybatisDao {
 
     // 函数作用：更新用户积分、最后登录IP及最后登录时间
     public void updateLoginInfo(User user);
+
+    public void insertUser(User user);
 }

@@ -31,6 +31,9 @@
         WHERE user_id = #{userId}
     </update>
 
-
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO t_user (user_id, user_name, password, credits, last_visit, last_ip)
+        VALUES(#{userId}, #{userName}, #{password}, #{credits}, #{lastVisit}, #{lastIp})
+    </insert>
 
 </mapper>
